@@ -2,6 +2,7 @@
 title: "Adding Content"
 date: 2019-10-17T23:37:54+02:00
 weight: 2
+draft: true
 ---
 
 ## Creating content
