@@ -1,0 +1,36 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Hugo workshop - guide"
+theme = "hugo-whisper-theme"
+
+[languages]
+  [languages.en]
+    title = "Hugo workshop - guide"
+    weight = 1
+    [languages.en.params]
+      homepage_button_link = "/docs"
+      homepage_button_text = "Go to the guide"
+      homepage_intro = "We are going to create a nice website for Momcorp (Futurama's robot company)"
+  [languages.es]
+    title = "Hugo workshop - guía"
+    weight = 2
+    [languages.es.params]
+      homepage_button_link = "/docs/es"
+      homepage_button_text = "Ir a la guía"
+      homepage_intro = "Vamos a hacer una maravillosa web para Corporación Mamá (la empresa de robots de Futurama)"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Guide"
+    url = "/docs/"
+    weight = 2
+
+[params]
+    homepage_image = "/images/screenshot-final.jpeg"
+    [params.logo]
+      standard = "/images/logo.png"
