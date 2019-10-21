@@ -18,7 +18,7 @@ To start showing content, Hugo needs a theme. You can create those on your own, 
 
 The usual way to install Hugo themes is adding them as a git submodule: `git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke`.
 
-Last, configure Hugo to use that theme adding `theme = "gohugo-theme-ananke"` on the `config.toml` file that it's on the root of the project.
+Last, configure Hugo to use that theme adding `theme = "ananke"` on the `config.toml` file that it's on the root of the project.
 
 This is the file were you are going to set up all the configuration for Hugo, including the theme and language options. But we will deal with that later!
 

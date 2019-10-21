@@ -3,6 +3,7 @@ languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Hugo workshop - guide"
 theme = "hugo-whisper-theme"
+enableEmoji = true
 
 [languages]
   [languages.en]
