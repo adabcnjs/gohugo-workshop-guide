@@ -1,0 +1,19 @@
+
+<nav class="navigation mt-4">
+  <ul class="pagination pagination-sm justify-content-center">
+      {{with .Next}}
+      <li class="page-item">
+        <a class="page-link" href="{{.RelPermalink}}" aria-label="{{.Title}}">
+          <span aria-hidden="true">&laquo; {{.Title}}</span>
+        </a>
+      </li>
+      {{end}}
+      {{with .Prev}}
+      <li class="page-item">
+        <a class="page-link" href="{{.RelPermalink}}" aria-label="{{.Title}}">
+          <span aria-hidden="true">{{.Title}} &raquo;</span>
+        </a>
+      </li>
+      {{end}}
+    </ul>
+</nav>
