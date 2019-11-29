@@ -7,21 +7,14 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.0
-      with:
-        hugo-version: '0.58.3'
-        extended: true
-
-    - name: Build
-      run: hugo --gc --minify --cleanDestinationDir
+    - name: Build Hugo
+      uses: lowply/build-hugo@v0.58.3
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.4.0
+      uses: peaceiris/actions-gh-pages@v2.5.1
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.GH_PAGES_KEY }}
         PUBLISH_BRANCH: gh-pages
