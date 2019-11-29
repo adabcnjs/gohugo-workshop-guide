@@ -1,0 +1,44 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><title>Deploy - Hugo workshop - guide</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=https://adajs.cat/gohugo-workshop-guide/favicon.png><link rel=stylesheet href=/gohugo-workshop-guide/css/style.min.e52b4b0fb53a774fff0134f7dccf601920e6f63b94f4ec34aa477ad55100993f.css></head><body class="page page-default-single"><div id=main-menu-mobile class=main-menu-mobile><ul><li class=menu-item-home><a href=/gohugo-workshop-guide/><span>Home</span></a></li><li class=menu-item-guide><a href=/gohugo-workshop-guide/docs/><span>Guide</span></a></li></ul></div><div class=wrapper><div class=header><div class=container><div class=logo><a href=https://adajs.cat/gohugo-workshop-guide/><img alt=Logo src=/gohugo-workshop-guide/images/logo.png></a></div><div class=logo-mobile><a href=https://adajs.cat/gohugo-workshop-guide/><img alt=Logo src=/gohugo-workshop-guide/images/logo.png></a></div><div id=main-menu class=main-menu><ul><li class=menu-item-home><a href=/gohugo-workshop-guide/><span>Home</span></a></li><li class=menu-item-guide><a href=/gohugo-workshop-guide/docs/><span>Guide</span></a></li></ul></div><button id=toggle-main-menu-mobile class="hamburger hamburger--slider" type=button>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button></div></div><div class="container pt-2 pt-md-6 pb-3 pb-md-6"><div class=row><div class="col-12 col-md-3 mb-3"><div class=sidebar><div class=docs-menu><h4>Docs</h4><ul><li><a href=https://adajs.cat/gohugo-workshop-guide/docs/1-set-up/>Set up</a></li><li><a href=https://adajs.cat/gohugo-workshop-guide/docs/2-adding-content/>Adding Content</a></li><li><a href=https://adajs.cat/gohugo-workshop-guide/docs/3-configuring-themes/>Configuring themes and menus</a></li><li><a href=https://adajs.cat/gohugo-workshop-guide/docs/4-shortcodes/>Shortcodes</a></li><li><a href=https://adajs.cat/gohugo-workshop-guide/docs/5-custom-css/>Custom CSS</a></li><li><a href=https://adajs.cat/gohugo-workshop-guide/docs/6-taxonomies/>Organizing content: taxonomies</a></li><li><a href=https://adajs.cat/gohugo-workshop-guide/docs/7-multilanguage/>Multilanguage</a></li><li class=active><a href=https://adajs.cat/gohugo-workshop-guide/docs/8-deploy/>Deploy</a></li></ul></div></div></div><div class="col-12 col-md-9"><h1 class=title>Deploy</h1><div class=content><p>We are almost finished! 🎉 You have a multilanguge site, fast and responsive, and adding new content is a piece of cake. Amazing. Let&rsquo;s get it public!</p><p>Deploying your site to the internet is not part of what Hugo pretends to do, but for the purpose of this workshop I&rsquo;ll go over two different options on how you can do it.</p><h2 id=github-pages>Github pages</h2><h3 id=set-up>Set up</h3><p>Gihub provides a free domain and hosting for each repo, even on free accounts. It has some limitations, but it&rsquo;s perfect for static websites (like ours) that are not going to get a lot of traffic. This is how to activate it:</p><ul><li><p>Execute the following comands to create an orphan branch called <code>gh-pages</code></p><pre><code class=language-shell>git checkout --orphan gh-pages
+git reset --hard
+git commit --allow-empty -m &quot;Initializing gh-pages branch&quot;
+git push origin gh-pages
+git checkout master
+</code></pre></li><li><p>Open your repo&rsquo;s github, and login.</p></li><li><p>Click on <em>settings</em></p></li><li><p>Scroll almost to the bottom of <em>options</em> until you see the <em>Github Pages</em> card</p></li><li><p>On the <em>source</em> dropdown, choose <em>gh-pages branch</em>.</p></li></ul><p>Now, everything you push to that branch is going to be the content of your website</p><ul><li>Get the url that github provides and add it as your <code>baseURL</code> in the <code>config.toml</code> file</li><li><p>Get your branch locally and link it to the <code>public</code> folder using the <em>worktree</em> git&rsquo;s feature:</p><pre><code class=language-shell>rm -rf public
+git worktree add -B gh-pages public origin/gh-pages
+</code></pre></li></ul><h3 id=manual-deploy>Manual deploy</h3><ul><li>Generate the content with the <code>hugo</code> command</li><li>Go to the <code>public</code> folder (you are on the other worktree now), commit everything and push it to gh-pages</li></ul><h3 id=automated>Automated</h3><p>One of the last additions of Github are <em>actions</em>, that let you automate a lot of process on your repo. We can use them to update the content of our gh-pages branch each time we push to master.</p><ul><li>Generate a github token with this command: <code>ssh-keygen -t rsa -b 4096 -C &quot;pcalabriarubio@gmail.com&quot; -f gh-pages -N &quot;&quot;</code> remember to change the email. That will create two files: <strong>NEVER COMMIT THEM</strong>. You can move them to a different location to be sure.</li><li>On your github&rsquo;s repo page, go to <em>settings</em></li><li>Click on <em>deploy keys</em> and <em>add deploy key</em></li><li>Choose the name you want, tick the <em>allow write access</em> checkbox and copypaste the content of the <code>gh-pages.pub</code> file on the big textarea</li><li>Save</li><li>Click on <em>secrets</em> and <em>add a new secret</em></li><li>Set <em>GH-PAGES-KEY</em> as name, and copypaste the content of the <code>gh-pages</code> file on the big textarea and save</li></ul><p>Now the automated actions can <strong>push</strong> to your repository</p><ul><li>Add a new file to your repo on <code>.github/workflows/main.yml</code>. You probably need to create the folders</li><li><p>Content of the file:</p><pre><code class=language-yml>name: Publish Site
+
+on:
+push:
+branches:
+  - master
+
+jobs:
+build-deploy:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@master
+  with:
+    # Not needed if you are not setting the theme as a submodule
+    submodules: true
+
+- name: Setup Hugo
+  uses: peaceiris/actions-hugo@v2
+  with:
+    # Keep the version and extend parameter on track with your local version
+    hugo-version: '0.58.3'
+    extended: true
+
+- name: Build
+  run: hugo --minify
+
+- name: Deploy
+  uses: peaceiris/actions-gh-pages@v2.4.0
+  env:
+    ACTIONS_DEPLOY_KEY: ${{ secrets.GH_PAGES_KEY }}
+    PUBLISH_BRANCH: gh-pages
+    PUBLISH_DIR: ./public
+</code></pre></li><li><p>Commit and push the file</p></li></ul><p>PS. To remove the gh-pages branch locally do this:</p><pre><code class=language-shell>rm -rf public
+git worktree prune
+git branch -D gh-pages
+</code></pre><h2 id=netifly>Netifly</h2></div><nav class="navigation mt-4"><ul class="pagination pagination-sm justify-content-center"><li class=page-item><a class=page-link href=/gohugo-workshop-guide/docs/7-multilanguage/ aria-label=Multilanguage><span aria-hidden=true>&laquo; Multilanguage</span></a></li></ul></nav></div></div></div></div></div><div class=sub-footer><div class=container><div class=row><div class=col-12><div class="sub-footer-inner justify-content-center"><ul><li class=mr-1>Made with 💜 for <a href=https://adajs.cat/>AdaJS Barcelona</a></li>&bull;<li class=zerostatic>Theme by <a href=https://www.zerostatic.io>www.zerostatic.io</a></li></ul></div></div></div></div></div><script type=text/javascript src=/gohugo-workshop-guide/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js></script></body></html>
