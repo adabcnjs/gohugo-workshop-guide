@@ -1,15 +1,92 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo workshop - guide</title><link>https://adajs.cat/gohugo-workshop-guide/</link><description>Recent content on Hugo workshop - guide</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 21 Oct 2019 22:26:54 +0200</lastBuildDate><atom:link href="https://adajs.cat/gohugo-workshop-guide/index.xml" rel="self" type="application/rss+xml"/><item><title>Set up</title><link>https://adajs.cat/gohugo-workshop-guide/docs/1-set-up/</link><pubDate>Thu, 17 Oct 2019 23:04:37 +0200</pubDate><guid>https://adajs.cat/gohugo-workshop-guide/docs/1-set-up/</guid><description>Create a project To install Hugo, follow the instructions on the site, depending on your operating system. You may need to restart the console afterwards for it to be activated.
-Once it is installed, create a new site with hugo new site momcorp. Then move to the new folder with cd momcorp and start a git repository in there (git init), or set the origin to an already existing one.</description></item><item><title>Adding Content</title><link>https://adajs.cat/gohugo-workshop-guide/docs/2-adding-content/</link><pubDate>Thu, 17 Oct 2019 23:37:54 +0200</pubDate><guid>https://adajs.cat/gohugo-workshop-guide/docs/2-adding-content/</guid><description>Creating content There are two ways of adding content to a Hugo site: with Hugo&amp;rsquo;s command line tool or manually.
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo workshop - guide</title>
+    <link>https://adajs.cat/gohugo-workshop-guide/</link>
+    <description>Recent content on Hugo workshop - guide</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Oct 2019 22:26:54 +0200</lastBuildDate>
+    
+	<atom:link href="https://adajs.cat/gohugo-workshop-guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Set up</title>
+      <link>https://adajs.cat/gohugo-workshop-guide/docs/1-set-up/</link>
+      <pubDate>Thu, 17 Oct 2019 23:04:37 +0200</pubDate>
+      
+      <guid>https://adajs.cat/gohugo-workshop-guide/docs/1-set-up/</guid>
+      <description>Create a project To install Hugo, follow the instructions on the site, depending on your operating system. You may need to restart the console afterwards for it to be activated.
+Once it is installed, create a new site with hugo new site momcorp. Then move to the new folder with cd momcorp and start a git repository in there (git init), or set the origin to an already existing one.</description>
+    </item>
+    
+    <item>
+      <title>Adding Content</title>
+      <link>https://adajs.cat/gohugo-workshop-guide/docs/2-adding-content/</link>
+      <pubDate>Thu, 17 Oct 2019 23:37:54 +0200</pubDate>
+      
+      <guid>https://adajs.cat/gohugo-workshop-guide/docs/2-adding-content/</guid>
+      <description>Creating content There are two ways of adding content to a Hugo site: with Hugo&amp;rsquo;s command line tool or manually.
 To add content from the command line run hugo new robots/killbot.md. A new file will appear. Try writing on it using markdown syntax and see what happens on your site! (keep running hugo serve in a different terminal for a faster development)
-You can also create the files manually.</description></item><item><title>Configuring themes and menus</title><link>https://adajs.cat/gohugo-workshop-guide/docs/3-configuring-themes/</link><pubDate>Mon, 21 Oct 2019 22:26:54 +0200</pubDate><guid>https://adajs.cat/gohugo-workshop-guide/docs/3-configuring-themes/</guid><description>Most of Hugo&amp;rsquo;s themes have little to no documentation, but they usually have a demo site that is a good showcase to check what can be done. Some of them won&amp;rsquo;t even work with a special configuration, so it is an easy start to just copy-paste the config.toml on the example site to our own.
-Using our theme documentation try to set a background image for the home (where the Paris landscape is on the demo) and the &amp;ldquo;subtitle&amp;rdquo;.</description></item><item><title>Shortcodes</title><link>https://adajs.cat/gohugo-workshop-guide/docs/4-shortcodes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://adajs.cat/gohugo-workshop-guide/docs/4-shortcodes/</guid><description>Using markdown for our content has advantages, but it is kinda boring. There&amp;rsquo;s no way to insert fancy content like videos, images carousels, tweets&amp;hellip; shortcodes to the rescue!
+You can also create the files manually.</description>
+    </item>
+    
+    <item>
+      <title>Configuring themes and menus</title>
+      <link>https://adajs.cat/gohugo-workshop-guide/docs/3-configuring-themes/</link>
+      <pubDate>Mon, 21 Oct 2019 22:26:54 +0200</pubDate>
+      
+      <guid>https://adajs.cat/gohugo-workshop-guide/docs/3-configuring-themes/</guid>
+      <description>Most of Hugo&amp;rsquo;s themes have little to no documentation, but they usually have a demo site that is a good showcase to check what can be done. Some of them won&amp;rsquo;t even work with a special configuration, so it is an easy start to just copy-paste the config.toml on the example site to our own.
+Using our theme documentation try to set a background image for the home (where the Paris landscape is on the demo) and the &amp;ldquo;subtitle&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Shortcodes</title>
+      <link>https://adajs.cat/gohugo-workshop-guide/docs/4-shortcodes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adajs.cat/gohugo-workshop-guide/docs/4-shortcodes/</guid>
+      <description>Using markdown for our content has advantages, but it is kinda boring. There&amp;rsquo;s no way to insert fancy content like videos, images carousels, tweets&amp;hellip; shortcodes to the rescue!
 Using shortcodes Shortcodes are a way to introduce dynamic, reusable pieces in our source content. Hugo comes with some built-in shortcodes.
 There are two ways to use a shortcode, usually depending if they process markdown or not:
-With markdown: {{% shortcodename %}}Stuff to _process_ in the *center*.</description></item><item><title>Custom CSS</title><link>https://adajs.cat/gohugo-workshop-guide/docs/5-custom-css/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://adajs.cat/gohugo-workshop-guide/docs/5-custom-css/</guid><description>Customizing our theme is something that we all need. From the simple &amp;ldquo;change the main color&amp;rdquo; to more complex styles, this is a normal need.
+ With markdown: {{% shortcodename %}}Stuff to _process_ in the *center*.</description>
+    </item>
+    
+    <item>
+      <title>Custom CSS</title>
+      <link>https://adajs.cat/gohugo-workshop-guide/docs/5-custom-css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adajs.cat/gohugo-workshop-guide/docs/5-custom-css/</guid>
+      <description>Customizing our theme is something that we all need. From the simple &amp;ldquo;change the main color&amp;rdquo; to more complex styles, this is a normal need.
 Unfortunately for us, there is no built-in way to do this with Hugo 😓. It depends on the theme you are using, so my advice is to take this point in consideration when choosing one.
 Some situations you can find are:
-You can add your own CSS/SCSS files.</description></item><item><title>Organizing content: taxonomies</title><link>https://adajs.cat/gohugo-workshop-guide/docs/6-taxonomies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://adajs.cat/gohugo-workshop-guide/docs/6-taxonomies/</guid><description>When we have a lot of content, we usually want to categorize it so our users can easily find what they are looking for. For this purpose, Hugo can group content by taxonomies.
+ You can add your own CSS/SCSS files.</description>
+    </item>
+    
+    <item>
+      <title>Organizing content: taxonomies</title>
+      <link>https://adajs.cat/gohugo-workshop-guide/docs/6-taxonomies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adajs.cat/gohugo-workshop-guide/docs/6-taxonomies/</guid>
+      <description>When we have a lot of content, we usually want to categorize it so our users can easily find what they are looking for. For this purpose, Hugo can group content by taxonomies.
 By default, there are already two taxonomies: tags and categories, but it is also easy to create custom ones.
-Using taxonomies Taxonomies are added on the Front Matter of each page, as arrays of strings. For example, lets give our Santa robot a &amp;ldquo;unique model&amp;rdquo; tag setting it&amp;rsquo;s Front Matter as:</description></item><item><title>Multilanguage</title><link>https://adajs.cat/gohugo-workshop-guide/docs/7-multilanguage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://adajs.cat/gohugo-workshop-guide/docs/7-multilanguage/</guid><description>As many other features, multilanguage 🌐 support varies depending on the theme you have choosen, so take that into consideration when selecting one for your site.
+Using taxonomies Taxonomies are added on the Front Matter of each page, as arrays of strings. For example, lets give our Santa robot a &amp;ldquo;unique model&amp;rdquo; tag setting it&amp;rsquo;s Front Matter as:</description>
+    </item>
+    
+    <item>
+      <title>Multilanguage</title>
+      <link>https://adajs.cat/gohugo-workshop-guide/docs/7-multilanguage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adajs.cat/gohugo-workshop-guide/docs/7-multilanguage/</guid>
+      <description>As many other features, multilanguage 🌐 support varies depending on the theme you have choosen, so take that into consideration when selecting one for your site.
 Configuring languages We can declare as many different languages as we want in the config file. The minimun parameters to specify are declare the variable itself and the weight (which will be taken into account for language fallbacks. More on that later)
-[languages] [languages.</description></item></channel></rss>
+[languages] [languages.</description>
+    </item>
+    
+  </channel>
+</rss>
