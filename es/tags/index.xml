@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Hugo workshop - guía</title>
-    <link>http://example.org/es/tags/</link>
+    <link>https://adajs.cat/gohugo-workshop-guide/es/tags/</link>
     <description>Recent content in Tags on Hugo workshop - guía</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://example.org/es/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://adajs.cat/gohugo-workshop-guide/es/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
