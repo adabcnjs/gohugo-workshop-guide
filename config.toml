@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://adajs.cat/gohugo-workshop-guide/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Hugo workshop - guide"
