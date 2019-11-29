@@ -1,5 +1,5 @@
 ---
-title: "Adding content: extra"
+title: "Managing content: extra"
 date: 2019-10-21T23:45:54+02:00
 weight: 100
 draft: true
