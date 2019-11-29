@@ -35,3 +35,4 @@ enableEmoji = true
     homepage_image = "/images/screenshot-final.jpeg"
     [params.logo]
       standard = "/images/logo.png"
+      mobile = "/images/logo.png"
