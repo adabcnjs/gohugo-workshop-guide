@@ -1,7 +1,7 @@
 ---
 title: "Deploy"
 weight: 8
-draft: true
+draft: false
 ---
 
 We are almost finished! :tada: You have a multilanguge site, fast and responsive, and adding new content is a piece of cake. Amazing. Let's get it public!
@@ -72,17 +72,28 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
-        with:
-          submodules: true
-      - name: Publish Site
-        uses: chabad360/hugo-gh-pages@master
-        with:
-          hugoVersion: extended_0.58.3 # Ideally, keep this synced with your local version
-          githubToken: ${{ secrets.GH_PAGES_KEY }}
+    - uses: actions/checkout@master
+      with:
+        # Not needed if you are not setting the theme as a submodule
+        submodules: true
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        # Keep the version and extend parameter on track with your local version
+        hugo-version: '0.58.3'
+        extended: true
+
+    - name: Build
+      run: hugo --minify
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.4.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.GH_PAGES_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./public
 ```
 
 - Commit and push the file
