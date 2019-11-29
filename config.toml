@@ -21,5 +21,5 @@ enableEmoji = true
     homepage_button_text = "Go to the guide"
     homepage_intro = "We are going to create a nice website for Momcorp (Futurama's robot company)"
     [params.logo]
-      standard = "/images/logo.png"
-      mobile = "/images/logo.png"
+      standard = "/images/logo.jpg"
+      mobile = "/images/logo.jpg"
