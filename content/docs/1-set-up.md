@@ -6,7 +6,7 @@ weight: 1
 
 ## Create a project
 
-To install Hugo, follow the [instructions](https://gohugo.io/getting-started/installing) on the site, depending on your operating system. You may need to restart the console afterwards for it to be activated.
+To install Hugo, follow the [instructions](https://gohugo.io/getting-started/installing) on the site, depending on your operating system. You may need to restart the console afterwards for it to be activated. If you can choose between the **extended version** or not, choose the extended. It is required to use SCSS, which lot of themes do.
 
 Once it is installed, **create a new site** with `hugo new site momcorp`. Then move to the new folder with `cd momcorp` and start a git repository in there (`git init`), or set the origin to an already existing one.
 

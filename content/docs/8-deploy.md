@@ -41,20 +41,20 @@ git worktree add -B gh-pages public origin/gh-pages
 
 ### Manual deploy
 
-- Generate the content with the `hugo` command
+- Generate the content with the `hugo --minify` command
 - Go to the `public` folder (you are on the other worktree now), commit everything and push it to gh-pages
 
 ### Automated
 
 One of the last additions of Github are _actions_, that let you automate a lot of process on your repo. We can use them to update the content of our gh-pages branch each time we push to master.
 
-- Generate a github token with this command: `ssh-keygen -t rsa -b 4096 -C "pcalabriarubio@gmail.com" -f gh-pages -N ""` remember to change the email. That will create two files: **NEVER COMMIT THEM**. You can move them to a different location to be sure.
+- Generate a github token with this command: `ssh-keygen -t rsa -b 4096 -C "yourmail@domain.com" -f gh-pages -N ""` remember to change the email. That will create two files: **NEVER COMMIT THEM**. You can move them to a different location to be sure.
 - On your github's repo page, go to _settings_
 - Click on _deploy keys_ and _add deploy key_
 - Choose the name you want, tick the _allow write access_ checkbox and copypaste the content of the `gh-pages.pub` file on the big textarea
 - Save
 - Click on _secrets_ and _add a new secret_
-- Set _GH-PAGES-KEY_ as name, and copypaste the content of the `gh-pages` file on the big textarea and save
+- Set *GH_PAGES_KEY* as name, and copypaste the content of the `gh-pages` file on the big textarea and save
 
 Now the automated actions can **push** to your repository
 
@@ -91,6 +91,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2.4.0
       env:
+        # Use the same name that you have set on your githug settings
         ACTIONS_DEPLOY_KEY: ${{ secrets.GH_PAGES_KEY }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
