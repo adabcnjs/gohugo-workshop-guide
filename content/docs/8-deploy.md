@@ -108,3 +108,42 @@ git branch -D gh-pages
 ```
 
 ## Netifly
+
+- Go to [netlify](https://www.netlify.com/) and register with your github account.
+- `Sites` -> `new site from Git`, authorize netlify and select the repository
+- Once it's done, close the modal and click on the repo's name (on netifly) to configure it
+- Here you can select a different branch to publish from. Leave build command (hugo) and publish directory (public) as they are.
+- Click `deploy site`
+- Go to `settings` -> `domain management` and select a more suitable domain name for your app.
+
+For a normal Hugo site, you won't need much more (apart for updating the baseUrl on your `config.toml`) but multilanguage sites are a bit special.
+
+- On the `config.toml` remove the `baseUrl` param for both languages and set it as `baseURL = "/"` at the main level
+- Create a new `netlify.toml` file and copy paste this code on it:
+
+```toml
+[build]
+  publish = "public"
+  command = "hugo --gc --minify"
+
+[build.environment]
+  # Keep this synced with your local version
+  HUGO_VERSION = "0.58.3"
+
+[context.production.environment]
+  HUGO_ENV = "production"
+  # Update with your url
+  HUGO_BASEURL = "https://momcorp.netlify.com/"
+
+[context.deploy-preview]
+  command = "hugo -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+  HUGO_ENABLEGITINFO = "true"
+```
+
+Commit, push, and wait for the deploy to finish. That should made the trick.
+
+There is much more things that can be configured on this platform, like having a "test deploy" for each pull request (with a temporal url), but this is out of the scope.
+
+If you are having problems building the site, go to `settings` -> `build & deploy` and check that the build image is Ubuntu Xenial 16.04.
