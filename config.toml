@@ -16,7 +16,7 @@ enableEmoji = true
     weight = 2
 
 [params]
-    homepage_image = "/images/screenshot-final.jpeg"
+    homepage_image = "/images/screenshot-final.png"
     homepage_button_link = "/docs"
     homepage_button_text = "Go to the guide"
     homepage_intro = "We are going to create a nice website for Momcorp (Futurama's robot company)"
