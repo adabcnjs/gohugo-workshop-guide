@@ -2,6 +2,7 @@
 title: "Deploy"
 weight: 8
 draft: false
+summary: "After all this hard work, having your site online is the last step. There are multiple ways to do it, both free and paid. Lets check out a few of them!"
 ---
 
 We are almost finished! :tada: You have a multilanguge site, fast and responsive, and adding new content is a piece of cake. Amazing. Let's get it public!

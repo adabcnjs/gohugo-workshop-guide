@@ -3,6 +3,7 @@ title: "Configuring themes and menus"
 date: 2019-10-21T22:26:54+02:00
 weight: 3
 draft: false
+summary: Themes have different options to be configured, and getting to know the one that you are using leads to a better experience. This will allow you to customize the theme and manipulate the items shown in the different menus.
 ---
 
 Most of Hugo's themes have little to no documentation, but they usually have a demo site that is a good showcase to check what can be done. Some of them won't even work with a special configuration, so it is an easy start to just copy-paste the `config.toml` on the example site to our own.

@@ -2,6 +2,7 @@
 title: "Custom CSS"
 weight: 5
 draft: false
+summary: "Different themes allow for different levels of personalization, but adding our personal touch is something that everybody wants. Don't be shy and dig into your theme to customize it!"
 ---
 
 Customizing our theme is something that we all need. From the simple "change the main color" to more complex styles, this is a normal need.

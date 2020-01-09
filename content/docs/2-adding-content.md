@@ -3,6 +3,7 @@ title: "Adding Content"
 date: 2019-10-17T23:37:54+02:00
 weight: 2
 draft: false
+summary: Create new pages for your website, add images and learn how to separate them into sections. Customize the layout of any page.
 ---
 
 ## Creating content
@@ -23,7 +24,6 @@ Although markdown is the most common, Hugo accepts also:
 ## Order matters
 
 The way you organize your content in folders is very important with Hugo. It will be used to choose the default layout, menu, urls and the related media. All this values can be changed if needed on the _Front Matter_ (the top section between dashes).
-
 Let's add some content to our killbot page. Create a `static/images` folder at the same level as `content` and put an image of a killbot in there. You can insert that on `killbot.md` with `![](/images/theimagename.png)`.
 
 Apart from that, each folder inside content can have one `_index.md` page, called the _list_ page, and it will be used as a "home" for that category. Let's do an index for our robots section! :robot:

@@ -2,6 +2,7 @@
 title: "Set up"
 date: 2019-10-17T23:04:37+02:00
 weight: 1
+summary: Create a new Hugo project and customize it with a public theme. Set the basic configuration needed and run your project locally.
 ---
 
 ## Create a project

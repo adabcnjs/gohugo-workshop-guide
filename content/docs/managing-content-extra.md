@@ -3,6 +3,7 @@ title: "Managing content: extra"
 date: 2019-10-21T23:45:54+02:00
 weight: 100
 draft: true
+summary: "Content doesn't need to be as boring as something written on a markdown file. Hugo has some nice features to make it easier to manage and create our web pages."
 ---
 
 ## Archetypes

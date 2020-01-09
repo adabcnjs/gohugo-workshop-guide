@@ -2,6 +2,7 @@
 title: "Multilanguage"
 weight: 7
 draft: false
+summary: "Having our content available on different languages is very important in a multinational world. With Hugo and the correct theme new languages can be configured in no time, and maintenance is almost none."
 ---
 
 As many other features, multilanguage :globe_with_meridians: support varies depending on the theme you have choosen, so take that into consideration when selecting one for your site.

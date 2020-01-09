@@ -2,6 +2,7 @@
 title: "Shortcodes"
 weight: 4
 draft: false
+summary: "Shortcodes add superpowers to markdown, allowing to insert dynamic HTML code. There are some already built-in, but we can easily create our own or copy the shortcodes shared by the community"
 ---
 
 Using markdown for our content has advantages, but it is kinda boring. There's no way to insert fancy content like videos, images carousels, tweets... shortcodes to the rescue!

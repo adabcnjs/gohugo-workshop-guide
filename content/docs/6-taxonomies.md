@@ -2,6 +2,7 @@
 title: "Organizing content: taxonomies"
 weight: 6
 draft: false
+summary: "Tags are more common on blogs, to categorize the posts and allow the users to discover new content, but they can be also usefull for normal sites"
 ---
 
 When we have a lot of content, we usually want to categorize it so our users can easily find what they are looking for. For this purpose, Hugo can group content by **taxonomies**.
@@ -38,3 +39,7 @@ When creating a custom taxonomy, we need to set it on the `config.toml` file, so
 As you can see, you need to redefine the default taxonomies that you want to keep (we are dropping _categories_ in this case).
 
 Of course, for this custom taxonomies to appear on the site, the theme has to support that (or you can modify a layout to show them!). In any case, the list page is always available under `yoursite/taxonomy-name/taxonomy-value`. Check the official docs to see some examples of [layouts related to taxonomies](https://gohugo.io/templates/taxonomy-templates/).
+
+## Disabling taxonomies
+
+If you aren't going to use taxonomies and want to prevent the list pages to be created, just add `disableKinds = ["taxonomy", "taxonomyTerm"]` to the configuration.
