@@ -42,4 +42,22 @@ steps:
 </code></pre></li><li><p>Commit and push the file</p></li></ul><p>PS. To remove the gh-pages branch locally do this:</p><pre><code class=language-shell>rm -rf public
 git worktree prune
 git branch -D gh-pages
-</code></pre><h2 id=netifly>Netifly</h2></div><nav class="navigation mt-4"><ul class="pagination pagination-sm justify-content-center"><li class=page-item><a class=page-link href=/gohugo-workshop-guide/docs/7-multilanguage/ aria-label=Multilanguage><span aria-hidden=true>&laquo; Multilanguage</span></a></li></ul></nav></div></div></div></div></div><div class=sub-footer><div class=container><div class=row><div class=col-12><div class="sub-footer-inner justify-content-center"><ul><li class=mr-1>Made with 💜 for <a href=https://adajs.cat/>AdaJS Barcelona</a></li>&bull;<li class=zerostatic>Theme by <a href=https://www.zerostatic.io>www.zerostatic.io</a></li></ul></div></div></div></div></div><script type=text/javascript src=/gohugo-workshop-guide/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js></script></body></html>
+</code></pre><h2 id=netifly>Netifly</h2><ul><li>Go to <a href=https://www.netlify.com/>netlify</a> and register with your github account.</li><li><code>Sites</code> -&gt; <code>new site from Git</code>, authorize netlify and select the repository</li><li>Once it&rsquo;s done, close the modal and click on the repo&rsquo;s name (on netifly) to configure it</li><li>Here you can select a different branch to publish from. Leave build command (hugo) and publish directory (public) as they are.</li><li>Click <code>deploy site</code></li><li>Go to <code>settings</code> -&gt; <code>domain management</code> and select a more suitable domain name for your app.</li></ul><p>For a normal Hugo site, you won&rsquo;t need much more (apart for updating the baseUrl on your <code>config.toml</code>) but multilanguage sites are a bit special.</p><ul><li>On the <code>config.toml</code> remove the <code>baseUrl</code> param for both languages and set it as <code>baseURL = &quot;/&quot;</code> at the main level (this is because we are getting just one domain for both languages)</li><li><p>Create a new <code>netlify.toml</code> file and copy paste this code on it:</p><pre><code class=language-toml>[build]
+publish = &quot;public&quot;
+command = &quot;hugo --gc --minify&quot;
+
+[build.environment]
+# Keep this synced with your local version
+HUGO_VERSION = &quot;0.58.3&quot;
+
+[context.production.environment]
+HUGO_ENV = &quot;production&quot;
+# Update with your url
+HUGO_BASEURL = &quot;https://momcorp.netlify.com/&quot;
+
+[context.deploy-preview]
+command = &quot;hugo -b $DEPLOY_PRIME_URL&quot;
+
+[context.deploy-preview.environment]
+HUGO_ENABLEGITINFO = &quot;true&quot;
+</code></pre></li></ul><p>Commit, push, and wait for the deploy to finish. That should made the trick.</p><p>There is much more things that can be configured on this platform, like having a &ldquo;test deploy&rdquo; for each pull request (with a temporal url), but this is out of the scope.</p><p>If you are having problems building the site, go to <code>settings</code> -&gt; <code>build &amp; deploy</code> and check that the build image is Ubuntu Xenial 16.04.</p></div><nav class="navigation mt-4"><ul class="pagination pagination-sm justify-content-center"><li class=page-item><a class=page-link href=/gohugo-workshop-guide/docs/7-multilanguage/ aria-label=Multilanguage><span aria-hidden=true>&laquo; Multilanguage</span></a></li></ul></nav></div></div></div></div></div><div class=sub-footer><div class=container><div class=row><div class=col-12><div class="sub-footer-inner justify-content-center text-center"><ul><li>Made with 💜 for <a href=https://adajs.cat/>AdaJS Barcelona</a></li><li class="d-none d-sm-inline-block" aria-hidden=true>&bull;</li><li class=zerostatic>Theme by <a href=https://www.zerostatic.io>www.zerostatic.io</a></li></ul></div></div></div></div></div><script type=text/javascript src=/gohugo-workshop-guide/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js></script></body></html>
