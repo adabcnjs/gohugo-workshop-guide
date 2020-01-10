@@ -108,11 +108,11 @@ git worktree prune
 git branch -D gh-pages
 ```
 
-## Netifly
+## Netlify
 
 - Go to [netlify](https://www.netlify.com/) and register with your github account.
 - `Sites` -> `new site from Git`, authorize netlify and select the repository
-- Once it's done, close the modal and click on the repo's name (on netifly) to configure it
+- Once it's done, close the modal and click on the repo's name (on netlify) to configure it
 - Here you can select a different branch to publish from. Leave build command (hugo) and publish directory (public) as they are.
 - Click `deploy site`
 - Go to `settings` -> `domain management` and select a more suitable domain name for your app.
