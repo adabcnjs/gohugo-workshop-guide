@@ -23,15 +23,7 @@ Another workaround is duplicating the correct layout and adding a `<link rel="st
 
 ----
 
-This last case may look like the one for our _Ananke_ theme, but taking a closer look at `themes/ananke/layouts/_default/baseof.html` we can see this code:
-
-```go
-{{ range .Site.Params.custom_css }}
-  <link rel="stylesheet" href="{{ relURL ($.Site.BaseURL) }}{{ . }}">
-{{ end }}
-```
-
-Which means we can add our custom css files setting the config this way:
+Checking our theme's documentation, we'll discover that we can add our custom css files setting the config this way:
 
 ```toml
 [params]

@@ -15,11 +15,13 @@ We can declare as many different languages as we want in the `config` file. The 
 [languages]
   [languages.en]
     weight = 1
+    languageCode = "en-EN"
   [languages.es]
     weight = 2
+    languageCode = "es-ES"
 ```
 
-We will add more things here later.
+**Important** `languageCode` is used to set up the `lang` attribute on our html tag, so it can affect screen readers, rss feeds, etc. Don't forget to set it correctly!
 
 ## Translating the content
 
@@ -35,15 +37,13 @@ There are two ways to do it: **per file** or **per folder**. Both methods are go
 [languages]
   [languages.en]
     weight = 1
-    contentDir = "content/en-EN"
     languageCode = "en-EN"
+    contentDir = "content/en-EN"
   [languages.es]
     weight = 2
-    contentDir = "content/es-ES"
     languageCode = "es-ES"
+    contentDir = "content/es-ES"
 ```
-
-**Important** `languageCode` is used to set up the `lang` attribute on our html tag, so it can affect screen readers, rss feeds, etc. Don't forget to set it correctly!
 
 ## Dynamic configuration
 
@@ -53,7 +53,7 @@ We may want to change general settings like the site title, urls, etc: this is e
 
 `baseUrl` is tricky, because you need to redefine it for every language, you cannot just do it for one and expect the rest to fallback on the default language. The good part is that Hugo will built two different sites, so you could have totally different domains (and the link between them will stil work!)
 
-In my case, I added did this customizations for spanish:
+In my case, I did this customizations for spanish:
 
 ```toml
 [languages.es]

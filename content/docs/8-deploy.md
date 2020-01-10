@@ -119,7 +119,7 @@ git branch -D gh-pages
 
 For a normal Hugo site, you won't need much more (apart for updating the baseUrl on your `config.toml`) but multilanguage sites are a bit special.
 
-- On the `config.toml` remove the `baseUrl` param for both languages and set it as `baseURL = "/"` at the main level
+- On the `config.toml` remove the `baseUrl` param for both languages and set it as `baseURL = "/"` at the main level (this is because we are getting just one domain for both languages)
 - Create a new `netlify.toml` file and copy paste this code on it:
 
 ```toml
